@@ -23,3 +23,4 @@ class Chicken(Animal):
     @property
     def noise(self):
         return "Cluck"
+        

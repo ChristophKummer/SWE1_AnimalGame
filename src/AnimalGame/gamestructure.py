@@ -8,6 +8,7 @@ class FeedAble(ABC):
 
     def eat(self):
         print(f"{self.__class__.__name__} makes noise while eating: ", self.noise)
+        
 
 class GameEntity:
     def __init__(self, name, health): # constructor
