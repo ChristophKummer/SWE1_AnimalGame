@@ -6,10 +6,12 @@ from typeguard import TypeCheckError
 from .wild.animals import Wolf
 
 # Main game loop
-def do_main_loop(player: Player, animals: list[Animal]):
+def do_main_loop(player: Player, animals: list[Animal],wolf: Wolf):
     for animal in animals:
         player.feed(animal)
         animal.display_info()
+    player.feed(wolf)
+    wolf.display_info()
 
     
 if __name__ == "__main__":
@@ -33,5 +35,5 @@ if __name__ == "__main__":
 
     wolf.hunt(animals[0])
 
-    do_main_loop(player, animals)
+    do_main_loop(player, animals, wolf)
     
