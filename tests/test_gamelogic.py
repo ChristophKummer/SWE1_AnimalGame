@@ -11,6 +11,7 @@ def test_cow(capsys):
     
 def test_wolf(capsys):
     new_cow = Cow()
+    assert new_cow.health == 10
     new_wolf = Wolf()
     new_wolf.hunt(new_cow)
-    
+    assert new_cow.health == 0
