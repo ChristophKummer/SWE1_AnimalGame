@@ -31,10 +31,7 @@ if __name__ == "__main__":
     except TypeCheckError:
         print("\nEin wilder Wolf kann keinen Spieler angreifen\n")
 
-    try:
-        wolf.hunt() #type: ignore
-    except TypeCheckError:
-        print("\nEin wilder Wolf kann keinen Spieler angreifen\n")
+    wolf.hunt(animals[0])
 
     do_main_loop(player, animals)
     

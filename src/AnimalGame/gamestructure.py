@@ -31,6 +31,10 @@ class Animal(GameEntity, FeedAble):
     def __init__(self, health):
         Animal.nr_instances += 1
         super().__init__(f"{Animal.nr_instances}-{self.__class__.__qualname__}", health)
+        
+    def __del__(self):
+        Animal.nr_instances = Animal.nr_instances - 1
+        print(f"{self.name} died")
 
 class Player(GameEntity):
     def __init__(self, name):
