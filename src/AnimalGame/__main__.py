@@ -2,6 +2,8 @@ import tomllib
 from pathlib import Path
 from .gamestructure import Player, Animal
 from .farm.animals import Chicken, Cow, Parrot
+from typeguard import TypeCheckError
+from .wild.animals import Wolf
 
 # Main game loop
 def do_main_loop(player: Player, animals: list[Animal]):
@@ -9,6 +11,7 @@ def do_main_loop(player: Player, animals: list[Animal]):
         player.feed(animal)
         animal.display_info()
 
+    
 if __name__ == "__main__":
     p = Path(__file__).parent / Path("config.toml")
     with open(p, mode="rb") as fp:
@@ -21,6 +24,12 @@ if __name__ == "__main__":
     # Create a player with name
     player = Player(config["PlayerInfo"]["name"])
 
-    print(animals)
+    # Exception handling
+    wolf = Wolf()
+    try:
+        wolf.hunt(player) #type: ignore
+    except TypeCheckError:
+        print("\nEin wilder Wolf kann keinen Spieler angreifen\n")
 
     do_main_loop(player, animals)
+    

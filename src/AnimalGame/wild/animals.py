@@ -8,9 +8,9 @@ class Wolf(Animal):
     def noise(self):
         return "NomNom"
     
-    def attack(self, animal: Animal):
+    def hunt(self, animal: Animal):
         animal.health -= 10
-        print(f"{self.name} attacked {animal.name}")
+        print(f"{self.name} killed {animal.name}")
 
         if animal.health <= 0:
             print(f"{animal.name} died")
